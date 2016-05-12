@@ -1,5 +1,7 @@
 using System;
 using System.Text;
+using System.Collections.Generic;
+
 public class Demo
 {
 
@@ -225,64 +227,101 @@ public class Demo
    //    Console.WriteLine(formatString);
 
 
+   // public static void Main()
+   // {
+      // StringBuilder sb = new StringBuilder();
+      //
+      // sb.Append("This is my first sentence. ");
+      // sb.AppendFormat("My name is {0} and I am a {1} ", "Tony", "Programmer");
+      // sb.Replace("a", "e");
+      // sb.Remove(5, 7);
+      // Console.WriteLine(sb.ToString());
+
+      // int[] randNumArray;
+      //
+      // int[] myRandArray = new int[5];
+      //
+      // int[] myRandArray2 = {1, 2, 3, 4, 5};
+      //
+      // Console.WriteLine("Array length " + myRandArray2.Length);
+      //
+      // Console.WriteLine("Item 0 " + myRandArray2[0]);
+      //
+      // for ( int i = 0; i < myRandArray2.Length; i++)
+      // {
+      //    Console.WriteLine("{0} : {1}", i, myRandArray2[i]);
+      // }
+      //
+      // foreach(int num in myRandArray2)
+      // {
+      //    Console.WriteLine(num);
+      // }
+      //
+      // Console.WriteLine("Where is 3? " + Array.IndexOf(myRandArray2, 3));
+      //
+      // string[] names = {"Tony", "Terence", "Tarpley"};
+      //
+      // string nameStr = string.Join( ", ", names);
+      //
+      // string[] nameArray = nameStr.Split(',');
+      //
+      // Console.WriteLine(nameStr);
+
+      // int[,] multArray = new int[1, 3];
+      //
+      // int[,] multArray2 = {{0, 2}, {4, 35}, {8, 10}};
+      //
+      // foreach(int num in multArray)
+      // {
+      //    Console.WriteLine(num);
+      // }
+      //
+      // for(int x = 0; x < multArray2.GetLength(0); x++)
+      // {
+      //    for(int y = 0; y < multArray2.GetLength(1); y++)
+      //    {
+      //       Console.WriteLine("{0} | {1} : {2}", x,y,multArray2[x,y]);
+      //    }
+      // }
+   // }
+
    public static void Main()
    {
-      StringBuilder sb = new StringBuilder();
+      List<int> numList = new List<int>();
 
-      sb.Append("This is my first sentence. ");
-      sb.AppendFormat("My name is {0} and I am a {1} ", "Tony", "Programmer");
-      sb.Replace("a", "e");
-      sb.Remove(5, 7);
-      Console.WriteLine(sb.ToString());
 
-      int[] randNumArray;
+      numList.Add(5);
+      numList.Add(15);
+      numList.Add(25);
 
-      int[] myRandArray = new int[5];
+      int[] randArray = {1, 2, 3, 4, 5};
+      numList.AddRange(randArray);
 
-      int[] myRandArray2 = {1, 2, 3, 4, 5};
+      List<int> numList2 = new List<int>(randArray);
 
-      Console.WriteLine("Array length " + myRandArray2.Length);
+      List<int> numList3 = new List<int>(new int[] {1, 2, 3, 4});
 
-      Console.WriteLine("Item 0 " + myRandArray2[0]);
+      numList.Insert(1, 10);
 
-      for ( int i = 0; i < myRandArray2.Length; i++)
+      numList.Remove(5);
+
+      numList.RemoveAt(2);
+
+      for (int i = 0; i < numList.Count; i++)
       {
-         Console.WriteLine("{0} : {1}", i, myRandArray2[i]);
+         Console.WriteLine(numList[i]);
       }
 
-      foreach(int num in myRandArray2)
-      {
-         Console.WriteLine(num);
-      }
+      Console.WriteLine("4 is in index: " + numList3.IndexOf(4));
 
-      Console.WriteLine("Where is 3? " + Array.IndexOf(myRandArray2, 3));
+      Console.WriteLine("5 in List? " + numList.Contains(5));
 
-      string[] names = {"Tony", "Terence", "Tarpley"};
+      List<string> strList = new List<string>(new string[]{"Tony", "Terence"});
 
-      string nameStr = string.Join( ", ", names);
+      Console.WriteLine("Tony in list? " + strList.Contains("Tony"));
 
-      string[] nameArray = nameStr.Split(',');
-
-      Console.WriteLine(nameStr);
-
-      int[,] multArray = new int[1, 3];
-
-      int[,] multArray2 = {{0, 2}, {4, 35}, {8, 10}};
-
-      foreach(int num in multArray)
-      {
-         Console.WriteLine(num);
-      }
-
-      for(int x = 0; x < multArray2.GetLength(0); x++)
-      {
-         for(int y = 0; y < multArray2.GetLength(1); y++)
-         {
-            Console.WriteLine("{0} | {1} : {2}", x,y,multArray2[x,y]);
-         }
-      }
-
-
+      strList.Sort();
+      
    }
 
 }
