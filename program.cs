@@ -80,50 +80,106 @@ public class Demo
    //    Console.WriteLine("Random number between 1 and 10: " + (rand.Next(1, 11)));
    // }
 
+   // public static void Main()
+   // {
+   //    int age = 17;
+   //
+   //    if ((age >= 50) || (age <= 7))
+   //    {
+   //       Console.WriteLine("Go to elementary school.");
+   //    } else if ((age > 7) && (age < 13))
+   //    {
+   //       Console.WriteLine("Go to junior high school.");
+   //    } else
+   //    {
+   //       Console.WriteLine("Go to high school.");
+   //    }
+   //
+   //    int age2 = 70;
+   //
+   //    if ((age2 < 14) || (age2 > 65))
+   //    {
+   //       Console.WriteLine("You should retire.");
+   //    }
+   //
+   //    Console.WriteLine("!true = " + (!true));
+   //
+   //    bool canDrive = age2 >= 16 ? true : false;
+   //
+   //    Console.WriteLine(canDrive);
+   //
+   //    switch (age)
+   //    {
+   //       case 0:
+   //          Console.WriteLine("Mars");
+   //          break;
+   //       case 1:
+   //       case 2:
+   //          Console.WriteLine("Earth");
+   //          goto Home;
+   //       default:
+   //          Console.WriteLine("Space");
+   //          break;
+   //    }
+   //
+   //    Home:
+   //    Console.WriteLine("Earth is home.");
+   // }
+
+
    public static void Main()
    {
-      int age = 17;
+      int i = 0;
 
-      if ((age >= 50) || (age <= 7))
+      while(i < 10)
       {
-         Console.WriteLine("Go to elementary school.");
-      } else if ((age > 7) && (age < 13))
-      {
-         Console.WriteLine("Go to junior high school.");
-      } else
-      {
-         Console.WriteLine("Go to high school.");
-      }
+         if (i == 2)
+         {
+            i++;
+            continue;
+         }
 
-      int age2 = 70;
-
-      if ((age2 < 14) || (age2 > 65))
-      {
-         Console.WriteLine("You should retire.");
-      }
-
-      Console.WriteLine("!true = " + (!true));
-
-      bool canDrive = age2 >= 16 ? true : false;
-
-      Console.WriteLine(canDrive);
-
-      switch (age)
-      {
-         case 0:
-            Console.WriteLine("Mars");
+         if (i == 7)
+         {
             break;
-         case 1:
-         case 2:
-            Console.WriteLine("Earth");
-            goto Home;
-         default:
-            Console.WriteLine("Space");
-            break;
+         }
+
+         if ((i % 2) != 0)
+         {
+            Console.WriteLine(i);
+         }
+         i++;
       }
 
-      Home:
-      Console.WriteLine("Earth is home.");
+
+      string guess;
+
+      do
+      {
+         Console.WriteLine("Guess a Number ");
+         guess = Console.ReadLine();
+
+      } while (guess.Equals("15"));
+
+
+      for (int j = 0; i < 10; j++)
+      {
+         if ((j % 2) > 0)
+         {
+            Console.WriteLine(i);
+         }
+      }
+
+
+      string randString = "Hey Now Everybody";
+
+      foreach (char c in randString)
+      {
+         Console.WriteLine(c);
+         /* Infinite
+            Loop
+            Here
+            */
+      }
    }
-
 }
