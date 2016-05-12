@@ -1,5 +1,5 @@
 using System;
-
+using System.Text;
 public class Demo
 {
 
@@ -184,46 +184,103 @@ public class Demo
    //
    // }
 
+   // public static void Main()
+   // {
+   //    string sampString = " A bunch of words";
+   //
+   //    Console.WriteLine("Is empty? " + String.IsNullOrEmpty(sampString));
+   //
+   //    Console.WriteLine("Is empty? " + String.IsNullOrWhiteSpace(sampString));
+   //
+   //    Console.WriteLine("String Length = " + sampString.Length);
+   //
+   //    Console.WriteLine("Index of \"of\" " + sampString.IndexOf("of"));
+   //
+   //    Console.WriteLine("Second word " + sampString.Substring(2, 6));
+   //
+   //    string sampString2 = "A bunch more random words";
+   //
+   //    Console.WriteLine("Starts with \"A bunch\" " + sampString2.StartsWith("A bunch"));
+   //
+   //    Console.WriteLine("Ends with \"words\" " + sampString2.EndsWith("words"));
+   //
+   //    sampString = sampString.TrimEnd();
+   //
+   //    Console.WriteLine(sampString);
+   //
+   //    sampString = sampString.Replace("words", "characters");
+   //
+   //    Console.WriteLine(sampString);
+   //
+   //    sampString = sampString.Remove(0, 3);
+   //
+   //    Console.WriteLine(sampString);
+   //
+   //    string[] names = new string[3] {"Matt", "Joe", "Paul"};
+   //
+   //    Console.WriteLine("Name List: " + String.Join(", ", names));
+   //
+   //    string formatString = String.Format("{0:c} {1:00} {2:#.00} {3:0.0}", 1.56, 15.567, .56, 1000);
+   //
+   //    Console.WriteLine(formatString);
+
+
    public static void Main()
    {
-      string sampString = " A bunch of words";
+      StringBuilder sb = new StringBuilder();
 
-      Console.WriteLine("Is empty? " + String.IsNullOrEmpty(sampString));
+      sb.Append("This is my first sentence. ");
+      sb.AppendFormat("My name is {0} and I am a {1} ", "Tony", "Programmer");
+      sb.Replace("a", "e");
+      sb.Remove(5, 7);
+      Console.WriteLine(sb.ToString());
 
-      Console.WriteLine("Is empty? " + String.IsNullOrWhiteSpace(sampString));
+      int[] randNumArray;
 
-      Console.WriteLine("String Length = " + sampString.Length);
+      int[] myRandArray = new int[5];
 
-      Console.WriteLine("Index of \"of\" " + sampString.IndexOf("of"));
+      int[] myRandArray2 = {1, 2, 3, 4, 5};
 
-      Console.WriteLine("Second word " + sampString.Substring(2, 6));
+      Console.WriteLine("Array length " + myRandArray2.Length);
 
-      string sampString2 = "A bunch more random words";
+      Console.WriteLine("Item 0 " + myRandArray2[0]);
 
-      Console.WriteLine("Starts with \"A bunch\" " + sampString2.StartsWith("A bunch"));
+      for ( int i = 0; i < myRandArray2.Length; i++)
+      {
+         Console.WriteLine("{0} : {1}", i, myRandArray2[i]);
+      }
 
-      Console.WriteLine("Ends with \"words\" " + sampString2.EndsWith("words"));
+      foreach(int num in myRandArray2)
+      {
+         Console.WriteLine(num);
+      }
 
-      sampString = sampString.TrimEnd();
+      Console.WriteLine("Where is 3? " + Array.IndexOf(myRandArray2, 3));
 
-      Console.WriteLine(sampString);
+      string[] names = {"Tony", "Terence", "Tarpley"};
 
-      sampString = sampString.Replace("words", "characters");
+      string nameStr = string.Join( ", ", names);
 
-      Console.WriteLine(sampString);
+      string[] nameArray = nameStr.Split(',');
 
-      sampString = sampString.Remove(0, 3);
+      Console.WriteLine(nameStr);
 
-      Console.WriteLine(sampString);
+      int[,] multArray = new int[1, 3];
 
-      string[] names = new string[3] {"Matt", "Joe", "Paul"};
+      int[,] multArray2 = {{0, 2}, {4, 35}, {8, 10}};
 
-      Console.WriteLine("Name List: " + String.Join(", ", names));
+      foreach(int num in multArray)
+      {
+         Console.WriteLine(num);
+      }
 
-      string formatString = String.Format("{0:c} {1:00} {2:#.00} {3:0.0}", 1.56, 15.567, .56, 1000);
-
-      Console.WriteLine(formatString);
-
+      for(int x = 0; x < multArray2.GetLength(0); x++)
+      {
+         for(int y = 0; y < multArray2.GetLength(1); y++)
+         {
+            Console.WriteLine("{0} | {1} : {2}", x,y,multArray2[x,y]);
+         }
+      }
 
 
    }
