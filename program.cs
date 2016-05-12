@@ -285,43 +285,65 @@ public class Demo
       // }
    // }
 
+   // public static void Main()
+   // {
+   //    List<int> numList = new List<int>();
+   //
+   //
+   //    numList.Add(5);
+   //    numList.Add(15);
+   //    numList.Add(25);
+   //
+   //    int[] randArray = {1, 2, 3, 4, 5};
+   //    numList.AddRange(randArray);
+   //
+   //    List<int> numList2 = new List<int>(randArray);
+   //
+   //    List<int> numList3 = new List<int>(new int[] {1, 2, 3, 4});
+   //
+   //    numList.Insert(1, 10);
+   //
+   //    numList.Remove(5);
+   //
+   //    numList.RemoveAt(2);
+   //
+   //    for (int i = 0; i < numList.Count; i++)
+   //    {
+   //       Console.WriteLine(numList[i]);
+   //    }
+   //
+   //    Console.WriteLine("4 is in index: " + numList3.IndexOf(4));
+   //
+   //    Console.WriteLine("5 in List? " + numList.Contains(5));
+   //
+   //    List<string> strList = new List<string>(new string[]{"Tony", "Terence"});
+   //
+   //    Console.WriteLine("Tony in list? " + strList.Contains("Tony"));
+   //
+   //    strList.Sort();
+   // }
+
    public static void Main()
    {
-      List<int> numList = new List<int>();
-
-
-      numList.Add(5);
-      numList.Add(15);
-      numList.Add(25);
-
-      int[] randArray = {1, 2, 3, 4, 5};
-      numList.AddRange(randArray);
-
-      List<int> numList2 = new List<int>(randArray);
-
-      List<int> numList3 = new List<int>(new int[] {1, 2, 3, 4});
-
-      numList.Insert(1, 10);
-
-      numList.Remove(5);
-
-      numList.RemoveAt(2);
-
-      for (int i = 0; i < numList.Count; i++)
+      try
       {
-         Console.WriteLine(numList[i]);
+         Console.Write("Divide 10 by ");
+         int num = int.Parse(Console.ReadLine());
+         Console.WriteLine("10 / {0} = {1}", num, (10/num));
       }
 
-      Console.WriteLine("4 is in index: " + numList3.IndexOf(4));
+      catch(DivideByZeroException ex)
+      {
+         Console.WriteLine("Can't divide by zero");
+         Console.WriteLine(ex.GetType().Name);
+         Console.WriteLine(ex.Message);
+         // throw new InvalidOperationException("Operation Failed", ex);
+      }
 
-      Console.WriteLine("5 in List? " + numList.Contains(5));
-
-      List<string> strList = new List<string>(new string[]{"Tony", "Terence"});
-
-      Console.WriteLine("Tony in list? " + strList.Contains("Tony"));
-
-      strList.Sort();
-      
+      catch(Exception ex)
+      {
+         Console.WriteLine(ex.GetType().Name);
+         Console.WriteLine(ex.Message);
+      }
    }
-
 }
