@@ -127,59 +127,105 @@ public class Demo
    // }
 
 
+   // public static void Main()
+   // {
+   //    int i = 0;
+   //
+   //    while(i < 10)
+   //    {
+   //       if (i == 2)
+   //       {
+   //          i++;
+   //          continue;
+   //       }
+   //
+   //       if (i == 7)
+   //       {
+   //          break;
+   //       }
+   //
+   //       if ((i % 2) != 0)
+   //       {
+   //          Console.WriteLine(i);
+   //       }
+   //       i++;
+   //    }
+   //
+   //
+   //    string guess;
+   //
+   //    do
+   //    {
+   //       Console.WriteLine("Guess a Number ");
+   //       guess = Console.ReadLine();
+   //
+   //    } while (guess.Equals("15"));
+   //
+   //
+   //    for (int j = 0; i < 10; j++)
+   //    {
+   //       if ((j % 2) > 0)
+   //       {
+   //          Console.WriteLine(i);
+   //       }
+   //    }
+   //
+   //
+   //    string randString = "Hey Now Everybody";
+   //
+   //    foreach (char c in randString)
+   //    {
+   //       Console.WriteLine(c);
+   //       /* Infinite
+   //          Loop
+   //          Here
+   //          */
+   //    }
+   //
+   // }
+
    public static void Main()
    {
-      int i = 0;
+      string sampString = " A bunch of words";
 
-      while(i < 10)
-      {
-         if (i == 2)
-         {
-            i++;
-            continue;
-         }
+      Console.WriteLine("Is empty? " + String.IsNullOrEmpty(sampString));
 
-         if (i == 7)
-         {
-            break;
-         }
+      Console.WriteLine("Is empty? " + String.IsNullOrWhiteSpace(sampString));
 
-         if ((i % 2) != 0)
-         {
-            Console.WriteLine(i);
-         }
-         i++;
-      }
+      Console.WriteLine("String Length = " + sampString.Length);
 
+      Console.WriteLine("Index of \"of\" " + sampString.IndexOf("of"));
 
-      string guess;
+      Console.WriteLine("Second word " + sampString.Substring(2, 6));
 
-      do
-      {
-         Console.WriteLine("Guess a Number ");
-         guess = Console.ReadLine();
+      string sampString2 = "A bunch more random words";
 
-      } while (guess.Equals("15"));
+      Console.WriteLine("Starts with \"A bunch\" " + sampString2.StartsWith("A bunch"));
 
+      Console.WriteLine("Ends with \"words\" " + sampString2.EndsWith("words"));
 
-      for (int j = 0; i < 10; j++)
-      {
-         if ((j % 2) > 0)
-         {
-            Console.WriteLine(i);
-         }
-      }
+      sampString = sampString.TrimEnd();
+
+      Console.WriteLine(sampString);
+
+      sampString = sampString.Replace("words", "characters");
+
+      Console.WriteLine(sampString);
+
+      sampString = sampString.Remove(0, 3);
+
+      Console.WriteLine(sampString);
+
+      string[] names = new string[3] {"Matt", "Joe", "Paul"};
+
+      Console.WriteLine("Name List: " + String.Join(", ", names));
+
+      string formatString = String.Format("{0:c} {1:00} {2:#.00} {3:0.0}", 1.56, 15.567, .56, 1000);
+
+      Console.WriteLine(formatString);
 
 
-      string randString = "Hey Now Everybody";
 
-      foreach (char c in randString)
-      {
-         Console.WriteLine(c);
-         /* Infinite
-            Loop
-            Here
-            */
-      }
    }
+
 }
