@@ -323,27 +323,145 @@ public class Demo
    //    strList.Sort();
    // }
 
-   public static void Main()
+   // public static void Main()
+   // {
+   //    try
+   //    {
+   //       Console.Write("Divide 10 by ");
+   //       int num = int.Parse(Console.ReadLine());
+   //       Console.WriteLine("10 / {0} = {1}", num, (10/num));
+   //    }
+   //
+   //    catch(DivideByZeroException ex)
+   //    {
+   //       Console.WriteLine("Can't divide by zero");
+   //       Console.WriteLine(ex.GetType().Name);
+   //       Console.WriteLine(ex.Message);
+   //       // throw new InvalidOperationException("Operation Failed", ex);
+   //    }
+   //
+   //    catch(Exception ex)
+   //    {
+   //       Console.WriteLine(ex.GetType().Name);
+   //       Console.WriteLine(ex.Message);
+   //    }
+   // }
+
+   class Animal
    {
-      try
-      {
-         Console.Write("Divide 10 by ");
-         int num = int.Parse(Console.ReadLine());
-         Console.WriteLine("10 / {0} = {1}", num, (10/num));
+         public double height { get; set;}
+         public double weight { get; set;}
+         public string sound { get; set;}
+
+         public string name;
+         public string Name
+         {
+            get{return name;}
+            set{name = value;}
+         }
+
+         public Animal()
+         {
+            this.height = 0;
+            this.weight = 0;
+            this.name = "No Name";
+            this.sound = "No Sound";
+            numOfAnimals++;
+         }
+
+         public Animal(double height, double weight, string name, string sound)
+         {
+            this.height = height;
+            this.weight = weight;
+            this.name = name;
+            this.sound = sound;
+            numOfAnimals++;
+         }
+
+         static int numOfAnimals = 0;
+
+         public static int getNumOfAnimals()
+         {
+            return numOfAnimals;
+         }
+
+         public string toString()
+         {
+            return String.Format("{0} is {1} inches tall, weighs {2}lbs and likes to say {3}", name, height, weight, sound);
+         }
+
+         public int getSum(int num1 = 1, int num2 = 1)
+         {
+            return num1 + num2;
+         }
+
+         public double getSum(double num1 = 1, double num2 = 1)
+         {
+            return num1 + num2;
+         }
+
+         public static void Main()
+         {
+            Animal spot = new Animal(15, 10, "Spot", "Woof");
+
+            Console.WriteLine("{0} says {1}", spot.name, spot.sound);
+
+            Console.WriteLine("Number of Animals " + Animal.getNumOfAnimals());
+
+            Console.WriteLine(spot.toString());
+
+            Console.WriteLine(spot.getSum(num2: 1.4, num1: 2.7));
+
+            Animal rover = new Animal
+            {
+               name = "Grover",
+               height = 16,
+               weight = 18,
+               sound = "Grrrr"
+            };
+
+            Dog spike = new Dog();
+
+            Console.WriteLine(spike.toString());
+
+            spike = new Dog(20, 15, "Spike", "Roar", "Chicken");
+
+            Console.WriteLine(spike.toString());
+
+            Shape rect = new Rectangle(5, 5);
+            Shape tri = new Rectangle(5, 5);
+
+            Console.WriteLine("Rect Area " + rect.area());
+            Console.WriteLine("Tri Area " + tri.area());
+
+            Rectangle combRect = new Rectangle(5, 5) + new Rectangle(5, 5);
+
+            Console.WriteLine("combRect Area " + combRect.area());
+
+         }
+
       }
 
-      catch(DivideByZeroException ex)
+      class Dog:Animal
       {
-         Console.WriteLine("Can't divide by zero");
-         Console.WriteLine(ex.GetType().Name);
-         Console.WriteLine(ex.Message);
-         // throw new InvalidOperationException("Operation Failed", ex);
+         public string favFood{get;set;}
+
+         public Dog() : base()
+         {
+            this.favFood = "No Favorite Food";
+         }
+
+         public Dog(double height, double weight, string name, string sound, string favFood) : base (height, weight, name, sound)
+         {
+            this.favFood = favFood;
+         }
+
+         new public string toString()
+         {
+            return String.Format("{0} is {1} inches tall, weighs {2}lbs and likes to say {3} and eats {4}", name, height, weight, sound, favFood);
+         }
       }
 
-      catch(Exception ex)
-      {
-         Console.WriteLine(ex.GetType().Name);
-         Console.WriteLine(ex.Message);
-      }
-   }
+
+
 }
